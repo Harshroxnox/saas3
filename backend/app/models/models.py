@@ -38,6 +38,6 @@ class Chunk(Base):
     user_id = Column(String, ForeignKey("users.user_id"), nullable=False)
     text_chunk = Column(Text, nullable=False)
     embedding = Column(Vector(4))  # 4-dim for mock embeddings
-    metadata = Column(JSON)
+    meta = Column("metadata", JSON)
 
     document = relationship("Document", back_populates="chunks")
