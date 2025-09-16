@@ -28,7 +28,7 @@ async def upload(file: UploadFile = File(...), user=Depends(require_user), db: S
             user_id=user["user_id"],
             text_chunk=ch["text"],
             embedding=ch["embedding"],
-            metadata=ch["metadata"]
+            meta=ch["metadata"]
         ))
     db.commit()
     return {"ok": True, "doc_id": doc.doc_id, "chunks_saved": len(parsed["chunks"])}
