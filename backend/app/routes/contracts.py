@@ -62,6 +62,6 @@ def get_contract(doc_id: str, user=Depends(require_user), db: Session = Depends(
         "clauses": clauses,
         "insights": insights,
         "snippets": [
-            {"text": c.text_chunk, "page": (c.metadata or {}).get("page"), "relevance": 0.85} for c in chunks[:3]
+            {"text": c.text_chunk, "page": (c.meta or {}).get("page"), "relevance": 0.85}
         ]
     }
